@@ -1,0 +1,12 @@
+<p>This is the partial for view 1.</p>
+<div test-directive></div>
+<ui-select ng-model="vm.person.selected" style="min-width: 300px;">
+    <ui-select-match placeholder="Select a person in the list or search his name/age...">{{$select.selected.name}}</ui-select-match>
+    <ui-select-choices repeat="person in vm.people">
+      <div ng-bind-html="person.name | highlight: $select.search"></div>
+      <small>
+        email: {{person.email}}
+        age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+      </small>
+    </ui-select-choices>
+  </ui-select>
